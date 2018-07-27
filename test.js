@@ -1,7 +1,7 @@
 /* globals assert */
 /* exported runTests */
 
-const tests = [];
+let tests = [];
 
 const test = (name, testFn) => {
     tests.push({
@@ -54,12 +54,16 @@ const displayResults = (results) => {
     });
 };
 
+let x = 0;
 
 const runTests = (event) => {
     event.preventDefault();
+
     test('1 + 1 = 2 passes', () => assert.equal(1 + 1, 2)); 
     test('1 + 1 = 3 fails', () => assert.equal(1 + 1, 3));
         
     test.run();
+
+    tests = [];
 };
 
