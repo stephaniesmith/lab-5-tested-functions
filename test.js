@@ -9,8 +9,6 @@ const test = (name, testFn) => {
 };
 
 const runTest = () => {
-    // var results = [];
-
     return tests.map(test => {
         try {
             test.testFn();
@@ -22,31 +20,11 @@ const runTest = () => {
         }
         return test;
     });
-
-    // for(var i = 0; i < tests.length; i++) {
-    //     let test = tests[i];
-
-    //     try {
-    //         test.testFn();
-    //         test.status = 'PASSED';
-    //     }
-    //     catch(err) {
-    //         test.status = 'FAILED';
-    //         test.error = err.message;
-    //     }
-
-    //     results.push(test);
-    // }
-
-    // return results;
 };
 
 const displayResults = (results) => {
     let color;
-
-    for(let i = 0; i < results.length; i++) {
-        let result = results[i];
-
+    results.forEach(result => {
         if(result.status === 'PASSED') {
             color = 'green';
         }
@@ -65,8 +43,8 @@ const displayResults = (results) => {
                 'color: red;'  
             );
         }
-
-    }
+        
+    });
 };
 
 
