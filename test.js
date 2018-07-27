@@ -2,11 +2,6 @@
 
 var tests = [];
 
-var person = {
-    name: 'sally',
-    favoriteColor: 'blue'
-};
-
 function test(name, testFn) {
     var test = {
         name: name,
@@ -43,6 +38,37 @@ function runTests() {
     return results;
 }
 
+function displayResults(results) {
+    var result;
+    var color;
+    for(var i = 0; i < results.length; i++) {
+        result = results[i];
+        // log name and PASS/FAIL
+
+        // get our color
+        if(result.status === 'PASSED') {
+            color = 'green';
+        }
+        else {
+            color = 'red';
+        }
+        // log out result
+        console.log(
+            result.name + ' %c' + result.status,
+            'color: ' + color + ';'
+        );
+
+        // if an error, 
+        if(result.status === 'FAILED') {
+            // log out the failure
+            console.log(
+                '\t%c' + (result.error || ''),
+                'color: red;'
+            );
+        }
+    }
+}
+
 test('1 + 1 = 2 passes', function() {
     assert.equal(1 + 1, 2);
 });
@@ -51,4 +77,5 @@ test('1 + 1 = 2 fails', function() {
     assert.equal(1 + 1, 3);
 });
 
-console.log(runTests());
+var results = runTests();
+displayResults(results);
