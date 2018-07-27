@@ -1,11 +1,11 @@
 
-function assert(success, message) {
+const assert = (success, message) => {
     if(!success) {
         throw new Error(message || 'expected true, but was false');
     }
-}
+};
 
-assert.equal = function(actual, expected, message) {
+assert.equal = (actual, expected, message) => {
     message = `${message || ''} expected ${expected} but was ${actual}`;
     // eslint-disable-next-line eqeqeq
     assert(actual == expected, message);
