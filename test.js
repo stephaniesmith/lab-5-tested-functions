@@ -11,6 +11,11 @@ function test(name, testFn) {
     tests.push(test);
 }
 
+test.run = function() {
+    var results = runTests();
+    displayResults(results);
+};
+
 function runTests() {
     // loop thru tests
     var results = [];
@@ -77,5 +82,4 @@ test('1 + 1 = 2 fails', function() {
     assert.equal(1 + 1, 3);
 });
 
-var results = runTests();
-displayResults(results);
+test.run();
