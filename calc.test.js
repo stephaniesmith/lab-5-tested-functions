@@ -1,4 +1,4 @@
-/* globals test, assert, calc */
+/* globals test, assert, calc, tests, testRunCount */
 /* exported describe */
 
 const describe = (event, name) => {
@@ -29,4 +29,7 @@ const describe = (event, name) => {
     });
     
     test.run();
+
+    tests = [];
+    testRunCount = 1;
 };

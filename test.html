@@ -4,11 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Test</title>
+  <title>Math Checker</title>
 </head>
 <body>
-    <h1>Testing</h1>
-    <button onclick="describe(event, 'Math')">Run Tests</button>
+    <h1>Math Checker</h1>
+
+    <form onsubmit="">
+      <div>
+        <input type="text">
+        <select name="" id="">
+            <option value="add">+</option>
+            <option value="subtract">-</option>
+            <option value="multiply">*</option>
+            <option value="divide">/</option>
+        </select>
+        <input type="text">
+        <span>=</span>
+        <input type="text">
+      </div>
+
+      <button onclick="describe(event, 'Math')">Run Math Checker</button>
+    </form>
+
     <script src="assert.js"></script>
     <script src="test.js"></script>
     <script src="calc.js"></script>

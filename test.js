@@ -3,7 +3,6 @@
 let tests = [];
 let testRunCount = 1;
 
-
 const test = (name, testFn) => {
     tests.push({
         name: name,
