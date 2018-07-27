@@ -74,12 +74,16 @@ function displayResults(results) {
     }
 }
 
-test('1 + 1 = 2 passes', function() {
-    assert.equal(1 + 1, 2);
-});
+// change to true to run test tests
+if(false) { // eslint-disable-line
 
-test('1 + 1 = 2 fails', function() {
-    assert.equal(1 + 1, 3);
-});
+    test('1 + 1 = 2 passes', function() {
+        assert.equal(1 + 1, 2);
+    });
 
-test.run();
+    test('1 + 1 = 2 fails', function() {
+        assert.equal(1 + 1, 3);
+    });
+
+    test.run();
+}
