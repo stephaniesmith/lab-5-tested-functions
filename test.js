@@ -8,9 +8,11 @@ const test = (name, testFn) => {
     });
 };
 
-const runTest = () => {
+function runTest() {
     const results = tests.map(test => {
         try {
+            console.log(test);
+            console.log(test.testFn());
             test.testFn();
             test.status = 'PASSED';
         }
@@ -21,15 +23,11 @@ const runTest = () => {
     });
 
     return results;
-};
+}
 
-const displayRes
-test('1 + 1 passes', () => {
-    assert.equal(1 + 1, 2);
-});
+//const displayRes
+test('1 + 1 passes', () => assert.equal(1 + 1, 2));
 
-test('1 + 1 = 2 fails', () => { 
-    assert.equal(1 + 1, 3);
-});
+test('1 + 1 = 2 fails', () => assert.equal(1 + 1, 3));
 
 console.log(runTest());
