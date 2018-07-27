@@ -1,4 +1,3 @@
-/* globals assert */
 /* exported runTests */
 
 let tests = [];
@@ -61,18 +60,4 @@ const displayResults = (results) => {
         testRunCount++;
     });
 };
-
-// const runTests = (event) => {
-//     event.preventDefault();
-//     console.log('%c%s',
-//         'color: black; background: yellow; font-size: 2em; font-family: helvetica',
-//         `   Test: ${testRunCount}   `);
-//     test('1 + 1 = 2 passes', () => assert.equal(1 + 1, 2)); 
-//     test('1 + 1 = 3 fails', () => assert.equal(1 + 1, 3));
-        
-//     test.run();
-
-//     testRunCount++;
-//     tests = [];
-// };
 
