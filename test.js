@@ -1,4 +1,5 @@
 /* globals assert */
+
 const tests = [];
 
 const test = (name, testFn) => {
@@ -47,8 +48,6 @@ const displayResults = (results) => {
     });
 };
 
-
-//const displayRes
 test('1 + 1 = 2 passes', () => assert.equal(1 + 1, 2));
 
 test('1 + 1 = 3 fails', () => assert.equal(1 + 1, 3));
