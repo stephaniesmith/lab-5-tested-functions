@@ -9,22 +9,27 @@
 <body>
     <h1>Math Checker</h1>
 
-    <form onsubmit="">
-      <div>
-        <input type="text">
-        <select name="" id="">
-            <option value="add">+</option>
-            <option value="subtract">-</option>
-            <option value="multiply">*</option>
-            <option value="divide">/</option>
-        </select>
-        <input type="text">
-        <span>=</span>
-        <input type="text">
-      </div>
-
-      <button onclick="describe(event, 'Math')">Run Math Checker</button>
+    <form onsubmit="addTest(event)">
+        <fieldset>
+            <div>
+              <input type="text">
+              <select name="" id="">
+                  <option value="add">+</option>
+                  <option value="subtract">-</option>
+                  <option value="multiply">*</option>
+                  <option value="divide">/</option>
+              </select>
+              <input type="text">
+              <span>=</span>
+              <input type="text">
+            </div>
+      
+            <button type="submit">Add Test</button>
+        </fieldset>
     </form>
+    <br/>
+    <button onclick="describe(event, 'Math')">Run Math Checker</button>
+
 
     <script src="assert.js"></script>
     <script src="test.js"></script>
