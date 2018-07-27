@@ -2,6 +2,8 @@
 /* exported runTests */
 
 let tests = [];
+let testRunCount = 1;
+
 
 const test = (name, testFn) => {
     tests.push({
@@ -31,7 +33,12 @@ const runTest = () => {
 
 const displayResults = (results) => {
     let color;
+
     results.forEach(result => {
+        console.log('%c%s',
+            'color: black; background: yellow; font-size: 1em; font-family: helvetica',
+            `   Test: ${testRunCount}   `);
+
         if(result.status === 'PASSED') {
             color = 'green';
         }
@@ -50,23 +57,22 @@ const displayResults = (results) => {
                 'color: red;'  
             );
         }
-        
+
+        testRunCount++;
     });
 };
 
-let testRunCount = 1;
-
-const runTests = (event) => {
-    event.preventDefault();
-    console.log('%c%s',
-        'color: black; background: yellow; font-size: 2em; font-family: helvetica',
-        `   Test: ${testRunCount}   `);
-    test('1 + 1 = 2 passes', () => assert.equal(1 + 1, 2)); 
-    test('1 + 1 = 3 fails', () => assert.equal(1 + 1, 3));
+// const runTests = (event) => {
+//     event.preventDefault();
+//     console.log('%c%s',
+//         'color: black; background: yellow; font-size: 2em; font-family: helvetica',
+//         `   Test: ${testRunCount}   `);
+//     test('1 + 1 = 2 passes', () => assert.equal(1 + 1, 2)); 
+//     test('1 + 1 = 3 fails', () => assert.equal(1 + 1, 3));
         
-    test.run();
+//     test.run();
 
-    testRunCount++;
-    tests = [];
-};
+//     testRunCount++;
+//     tests = [];
+// };
 
