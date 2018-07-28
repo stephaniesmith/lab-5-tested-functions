@@ -1,13 +1,52 @@
-/* exported runTests */
+/* exported runTests, addTest */
+/* globals calc, assert */
 
 let tests = [];
 let testRunCount = 1;
+let testFn;
 
-const test = (name, testFn) => {
+const test = (name) => {
     tests.push({
         name: name,
         testFn: testFn
     });
+    console.log('tests', tests);
+};
+
+const addTest = (event) => {
+    event.preventDefault();
+    const numOne = parseInt(document.getElementById('numOne').value, 10);
+    const numTwo = parseInt(document.getElementById('numTwo').value, 10);
+    const answer = parseInt(document.getElementById('answer').value, 10);
+    let operator = document.getElementById('operator').value;
+    
+    if(operator === '+') {
+        testFn = () => {
+            const sum = calc.add(numOne, numTwo);
+            assert.equal(sum, answer);
+        };
+
+    }
+    else if(operator === '-') {
+        testFn = () => {
+            const diff = calc.subtract(numOne, numTwo);
+            assert.equal(diff, answer);
+        };
+    }
+    else if(operator === '*') {
+        testFn = () => {
+            const product = calc.multiply(numOne, numTwo);
+            assert.equal(product, answer);
+        };
+    }
+    else if(operator === '/') {
+        testFn = () => {
+            const quotient = calc.divide(numOne, numTwo);
+            assert.equal(quotient, answer);
+        };
+    }
+
+    test(`${numOne} ${operator} ${numTwo} = ${answer}`);
 };
 
 test.run = () => {

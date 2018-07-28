@@ -12,16 +12,16 @@
     <form onsubmit="addTest(event)">
         <fieldset>
             <div>
-              <input type="text">
-              <select name="" id="">
-                  <option value="add">+</option>
-                  <option value="subtract">-</option>
-                  <option value="multiply">*</option>
-                  <option value="divide">/</option>
+              <input id="numOne" type="number">
+              <select name="operator" id="operator">
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                  <option value="*">*</option>
+                  <option value="/">/</option>
               </select>
-              <input type="text">
+              <input id="numTwo" type="number">
               <span>=</span>
-              <input type="text">
+              <input id="answer" type="number">
             </div>
       
             <button type="submit">Add Test</button>
@@ -32,8 +32,8 @@
 
 
     <script src="assert.js"></script>
-    <script src="test.js"></script>
     <script src="calc.js"></script>
+    <script src="test.js"></script>
     <script src="calc.test.js"></script>
 </body>
 </html>
