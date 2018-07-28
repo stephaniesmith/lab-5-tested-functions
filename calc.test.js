@@ -6,9 +6,12 @@ const describe = (event, name) => {
 
     console.log('%c%s',
         'color: black; background: yellow; font-size: 2em; font-family: helvetica',
-        `   Test Suite: ${name}   `);
+        `   Test Suite   `);
     
     test.run();
+    const p = document.createElement('p');
+    p.innerText = 'Open the console to see results.';
+    div.appendChild(p);
 
     testRunCount = 1;
 };
