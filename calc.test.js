@@ -1,24 +1,37 @@
-/* globals test, assert */
-/* globals calc */
+/* globals test, tests, testRunCount, div */
+/* exported describe, tests, testRunCount */
 
-test('adds two numbers', function() {
-    var sum = calc.add(3, 4);
-    assert.equal(sum, 7);
-});
+const describe = (event, name) => {
+    event.preventDefault();
 
-test('subtracts two number', function() {
-    var diff = calc.subtract(7, 3);
-    assert.equal(diff, 4);
-});
+    console.log('%c%s',
+        'color: black; background: yellow; font-size: 2em; font-family: helvetica',
+        `   Test Suite: ${name}   `);
 
-test('multiplies two numbers', function() {
-    var product = calc.multiply(3, 4);
-    assert.equal(product, 12);
-});
+    // test('adds two numbers', () => {
+    //     const sum = calc.add(3, 4);
+    //     assert.equal(sum, 7);
+    // });
+    
+    // test('subtracts two numbers', () => {
+    //     const diff = calc.subtract(7, 3);
+    //     assert.equal(diff, 4);
+    // });
+    
+    // test('multiplies two numbers', () => {
+    //     const product = calc.multiply(2, 4);
+    //     assert.equal(product, 8);
+    // });
+    
+    // test('divides two numbers', () => {
+    //     const quotient = calc.divide(6, 3);
+    //     assert.equal(quotient, 2);
+    // });
+    
+    test.run();
 
-test('divides two numbers', function() {
-    var quotient = calc.divide(12, 3);
-    assert.equal(quotient, 4);
-});
+    tests = [];
+    testRunCount = 1;
 
-test.run();
+    div.innerHTML = '';
+};

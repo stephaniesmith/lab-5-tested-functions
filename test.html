@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
@@ -11,6 +12,42 @@
     <script src="test.js"></script>
 
     <script src="calc.js"></script>
+=======
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Math Checker</title>
+</head>
+<body>
+    <h1>Math Checker</h1>
+
+    <form onsubmit="addTest(event)">
+        <fieldset>
+            <div>
+              <input id="numOne" type="number">
+              <select name="operator" id="operator">
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                  <option value="*">*</option>
+                  <option value="/">/</option>
+              </select>
+              <input id="numTwo" type="number">
+              <span>=</span>
+              <input id="answer" type="number">
+            </div>
+      
+            <button type="submit">Add Test</button>
+        </fieldset>
+    </form>
+    <div id="tests"></div>
+    <br/>
+    <button onclick="describe(event, 'Math')">Run Math Checker</button>
+
+
+    <script src="assert.js"></script>
+    <script src="calc.js"></script>
+    <script src="test.js"></script>
+>>>>>>> a8e1af0fb1254b25b264cda58df13ee1fe9650aa
     <script src="calc.test.js"></script>
 </body>
 </html>

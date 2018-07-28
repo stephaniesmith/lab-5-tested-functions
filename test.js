@@ -1,89 +1,107 @@
-/* globals assert */
+/* exported runTests, addTest */
+/* globals calc, assert */
 
-var tests = [];
+let tests = [];
+let testRunCount = 1;
+let testFn;
+const div = document.getElementById('tests');
 
-function test(name, testFn) {
-    var test = {
+const test = (name) => {
+    tests.push({
         name: name,
         testFn: testFn
-    };
+    });
+};
 
-    tests.push(test);
-}
+const addTest = (event) => {
+    event.preventDefault();
+    const numOne = parseInt(document.getElementById('numOne').value, 10);
+    const numTwo = parseInt(document.getElementById('numTwo').value, 10);
+    const answer = parseInt(document.getElementById('answer').value, 10);
+    let operator = document.getElementById('operator').value;
+    
+    if(operator === '+') {
+        testFn = () => {
+            const sum = calc.add(numOne, numTwo);
+            assert.equal(sum, answer);
+        };
 
-test.run = function() {
-    var results = runTests();
+    }
+    else if(operator === '-') {
+        testFn = () => {
+            const diff = calc.subtract(numOne, numTwo);
+            assert.equal(diff, answer);
+        };
+    }
+    else if(operator === '*') {
+        testFn = () => {
+            const product = calc.multiply(numOne, numTwo);
+            assert.equal(product, answer);
+        };
+    }
+    else if(operator === '/') {
+        testFn = () => {
+            const quotient = calc.divide(numOne, numTwo);
+            assert.equal(quotient, answer);
+        };
+    }
+
+    const name = `${numOne} ${operator} ${numTwo} = ${answer}`;
+
+    test(name);
+
+    const p = document.createElement('p');
+    p.innerText = name;
+    div.appendChild(p);
+};
+
+test.run = () => {
+    let results = runTest();
     displayResults(results);
 };
 
-function runTests() {
-    // loop thru tests
-    var results = [];
-    var test;
-    for(var i = 0; i < tests.length; i++) {
-        // reference the test
-        test = tests[i];
-
+const runTest = () => {
+    return tests.map(test => {
         try {
             test.testFn();
-            // if no errors - passes
             test.status = 'PASSED';
         }
         catch(err) {
-            // if errors - fails
             test.status = 'FAILED';
             test.error = err.message;
         }
+        return test;
+    });
+};
 
-        // record the results
-        results.push(test);
-    }
+const displayResults = (results) => {
+    let color;
 
-    // return all results
-    return results;
-}
+    results.forEach(result => {
+        console.log('%c%s',
+            'color: black; background: yellow; font-size: 1em; font-family: helvetica',
+            `   Test: ${testRunCount}   `);
 
-function displayResults(results) {
-    var result;
-    var color;
-    for(var i = 0; i < results.length; i++) {
-        result = results[i];
-        // log name and PASS/FAIL
-
-        // get our color
         if(result.status === 'PASSED') {
             color = 'green';
         }
         else {
             color = 'red';
         }
-        // log out result
+
         console.log(
             result.name + ' %c' + result.status,
             'color: ' + color + ';'
         );
 
-        // if an error, 
         if(result.status === 'FAILED') {
-            // log out the failure
             console.log(
                 '\t%c' + (result.error || ''),
-                'color: red;'
+                'color: red;'  
             );
         }
-    }
-}
 
-// change to true to run test tests
-if(false) { // eslint-disable-line
-
-    test('1 + 1 = 2 passes', function() {
-        assert.equal(1 + 1, 2);
+        testRunCount++;
     });
+};
 
-    test('1 + 1 = 2 fails', function() {
-        assert.equal(1 + 1, 3);
-    });
-
-    test.run();
-}
