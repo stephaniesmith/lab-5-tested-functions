@@ -4,13 +4,13 @@
 let tests = [];
 let testRunCount = 1;
 let testFn;
+const div = document.getElementById('tests');
 
 const test = (name) => {
     tests.push({
         name: name,
         testFn: testFn
     });
-    console.log('tests', tests);
 };
 
 const addTest = (event) => {
@@ -46,7 +46,13 @@ const addTest = (event) => {
         };
     }
 
-    test(`${numOne} ${operator} ${numTwo} = ${answer}`);
+    const name = `${numOne} ${operator} ${numTwo} = ${answer}`;
+
+    test(name);
+
+    const p = document.createElement('p');
+    p.innerText = name;
+    div.appendChild(p);
 };
 
 test.run = () => {
