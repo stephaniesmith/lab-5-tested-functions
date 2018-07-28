@@ -53,6 +53,10 @@ const addTest = (event) => {
     const p = document.createElement('p');
     p.innerText = name;
     div.appendChild(p);
+
+    document.getElementById('numOne').value = '';
+    document.getElementById('numTwo').value = '';
+    document.getElementById('answer').value = '';
 };
 
 test.run = () => {
